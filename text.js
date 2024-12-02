@@ -39,7 +39,8 @@ class Api
         {
             const paramReg = new RegExp(`%${param}%`);
 
-            if (paramReg.test(template)) {
+            if (paramReg.test(template))
+            {
                 const replaceValue = encodeURIComponent(object[param]);
                 result = result.replace(paramReg, replaceValue);
             }
