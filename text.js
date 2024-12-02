@@ -35,15 +35,16 @@ class Api
 		let result = template;
 
 		/* Здесь ваш код */
-    const params = Object.keys(object);
-    
-    params.forEach(param => {
-      const paramReg = new RegExp(`%${param}%`);
-      if (paramReg.test(template)) {
-        const replaceValue = encodeURIComponent(object[param]);
-        result = result.replace(paramReg, replaceValue);
-      }
-    })
+        const params = Object.keys(object);
+        
+        params.forEach(param => {
+            const paramReg = new RegExp(`%${param}%`);
+            
+            if (paramReg.test(template)) {
+                const replaceValue = encodeURIComponent(object[param]);
+                result = result.replace(paramReg, replaceValue);
+            }
+        });
 
 		return result;
 	}
